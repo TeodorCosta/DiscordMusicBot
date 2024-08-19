@@ -2,11 +2,11 @@ from discord.ext import commands
 import discord, yt_dlp as youtube_dl, os, asyncio
 import subprocess
 import re
-
+import variables
 
 print(os.getenv('PATH'))
 
-subprocess.run(["C:/ffmpeg/bin/ffmpeg", "-version"])
+subprocess.run([variables.path, "-version"])
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -151,4 +151,4 @@ async def errorhandler(ctx, error):
     if isinstance(error, commands.errors.CommandInvokeError):
         await ctx.send("An error occurred while processing the command.")
 
-bot.run("MTI3NTE0ODY1NTc2NjAxNjA2Mw.GqVb7s.OSAedJhIv_bQNHb9dMfX2Ug8uQyqXF-Rz1L3ms")
+bot.run(variables.bot_token)
